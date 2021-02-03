@@ -15,3 +15,5 @@
 1. ConsoleEx.IsWideDisplayChar(char c) 判断字符在控制台中显示的长度是否是2
 2. ConsoleEx.GetCharDisplayLength(char c) 获取字符在控制台中的显示长度, 返回结果是 1 或 2
 3. ConsoleEx.GetStringDisplayLength(string str) 获取字符串在控制台中的显示长度
+
+上述三个方法的名字添加Ex的方法表示不通过 Lengths 数组获取, 而是通过判断字符所在的区间然后返回已经写好的值. 在这个方法中, '\t'的宽度被判定为8.
