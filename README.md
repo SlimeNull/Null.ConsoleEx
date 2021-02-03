@@ -15,7 +15,3 @@
 1. ConsoleEx.IsWideDisplayChar(char c) 判断字符在控制台中显示的长度是否是2
 2. ConsoleEx.GetCharDisplayLength(char c) 获取字符在控制台中的显示长度, 返回结果是 1 或 2
 3. ConsoleEx.GetStringDisplayLength(string str) 获取字符串在控制台中的显示长度
-
-### NuGet:
-
-本库已经发布在 nuget.org, 可使用 NuGet 包管理器安装.
