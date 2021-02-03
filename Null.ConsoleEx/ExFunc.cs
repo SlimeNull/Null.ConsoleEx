@@ -5,258 +5,11 @@ namespace Null.ConsoleEx
 {
     public static class ConsoleEx
     {
-        static byte[] Lengths = Resources.Lengths;
         public static bool IsWideDisplayChar(char c)
         {
-            int index = c;
-            return (Lengths[index / 8] & (1 << (index % 8))) != 0;
+            return GetCharDisplayLength(c) > 1;
         }
         public static int GetCharDisplayLength(char c)
-        {
-            int index = c;
-            bool wideChar = (Lengths[index / 8] & (1 << (index % 8))) != 0;
-
-            return wideChar ? 2 : 1;
-        }
-        public static int GetStringDisplayLength(string str)
-        {
-            int total = 0;
-            foreach (char c in str)
-            {
-                int i = c;
-                total += (Lengths[i / 8] & (1 << (i % 8))) != 0 ? 2 : 1;
-            }
-            return total;
-        }
-        public static bool IsWideDisplayCharEx(char c)
-        {
-            int index = c;
-            if (index > 9 && index < 10)
-                return true;
-            else if (index > 162 && index < 166)
-                return true;
-            else if (index > 167 && index < 169)
-                return true;
-            else if (index > 175 && index < 178)
-                return true;
-            else if (index > 180 && index < 182)
-                return true;
-            else if (index > 183 && index < 184)
-                return true;
-            else if (index > 215 && index < 216)
-                return true;
-            else if (index > 247 && index < 248)
-                return true;
-            else if (index > 449 && index < 450)
-                return true;
-            else if (index > 711 && index < 712)
-                return true;
-            else if (index > 713 && index < 716)
-                return true;
-            else if (index > 729 && index < 730)
-                return true;
-            else if (index > 913 && index < 930)
-                return true;
-            else if (index > 931 && index < 938)
-                return true;
-            else if (index > 945 && index < 962)
-                return true;
-            else if (index > 963 && index < 970)
-                return true;
-            else if (index > 1025 && index < 1026)
-                return true;
-            else if (index > 1040 && index < 1104)
-                return true;
-            else if (index > 1105 && index < 1106)
-                return true;
-            else if (index > 8208 && index < 8209)
-                return true;
-            else if (index > 8211 && index < 8215)
-                return true;
-            else if (index > 8216 && index < 8218)
-                return true;
-            else if (index > 8220 && index < 8222)
-                return true;
-            else if (index > 8229 && index < 8231)
-                return true;
-            else if (index > 8240 && index < 8241)
-                return true;
-            else if (index > 8242 && index < 8244)
-                return true;
-            else if (index > 8245 && index < 8246)
-                return true;
-            else if (index > 8251 && index < 8252)
-                return true;
-            else if (index > 8254 && index < 8255)
-                return true;
-            else if (index > 8364 && index < 8365)
-                return true;
-            else if (index > 8451 && index < 8452)
-                return true;
-            else if (index > 8453 && index < 8454)
-                return true;
-            else if (index > 8457 && index < 8458)
-                return true;
-            else if (index > 8470 && index < 8471)
-                return true;
-            else if (index > 8481 && index < 8482)
-                return true;
-            else if (index > 8544 && index < 8556)
-                return true;
-            else if (index > 8560 && index < 8570)
-                return true;
-            else if (index > 8592 && index < 8596)
-                return true;
-            else if (index > 8598 && index < 8602)
-                return true;
-            else if (index > 8712 && index < 8713)
-                return true;
-            else if (index > 8719 && index < 8720)
-                return true;
-            else if (index > 8721 && index < 8722)
-                return true;
-            else if (index > 8725 && index < 8726)
-                return true;
-            else if (index > 8728 && index < 8729)
-                return true;
-            else if (index > 8730 && index < 8731)
-                return true;
-            else if (index > 8733 && index < 8737)
-                return true;
-            else if (index > 8739 && index < 8740)
-                return true;
-            else if (index > 8741 && index < 8742)
-                return true;
-            else if (index > 8743 && index < 8748)
-                return true;
-            else if (index > 8750 && index < 8751)
-                return true;
-            else if (index > 8756 && index < 8760)
-                return true;
-            else if (index > 8764 && index < 8766)
-                return true;
-            else if (index > 8776 && index < 8777)
-                return true;
-            else if (index > 8780 && index < 8781)
-                return true;
-            else if (index > 8786 && index < 8787)
-                return true;
-            else if (index > 8800 && index < 8802)
-                return true;
-            else if (index > 8804 && index < 8808)
-                return true;
-            else if (index > 8814 && index < 8816)
-                return true;
-            else if (index > 8853 && index < 8854)
-                return true;
-            else if (index > 8857 && index < 8858)
-                return true;
-            else if (index > 8869 && index < 8870)
-                return true;
-            else if (index > 8895 && index < 8896)
-                return true;
-            else if (index > 8978 && index < 8979)
-                return true;
-            else if (index > 9312 && index < 9322)
-                return true;
-            else if (index > 9332 && index < 9372)
-                return true;
-            else if (index > 9632 && index < 9634)
-                return true;
-            else if (index > 9650 && index < 9652)
-                return true;
-            else if (index > 9660 && index < 9662)
-                return true;
-            else if (index > 9670 && index < 9672)
-                return true;
-            else if (index > 9675 && index < 9676)
-                return true;
-            else if (index > 9678 && index < 9680)
-                return true;
-            else if (index > 9698 && index < 9702)
-                return true;
-            else if (index > 9733 && index < 9735)
-                return true;
-            else if (index > 9737 && index < 9738)
-                return true;
-            else if (index > 9792 && index < 9793)
-                return true;
-            else if (index > 9794 && index < 9795)
-                return true;
-            else if (index > 12288 && index < 12292)
-                return true;
-            else if (index > 12293 && index < 12312)
-                return true;
-            else if (index > 12317 && index < 12319)
-                return true;
-            else if (index > 12321 && index < 12330)
-                return true;
-            else if (index > 12353 && index < 12436)
-                return true;
-            else if (index > 12443 && index < 12447)
-                return true;
-            else if (index > 12449 && index < 12535)
-                return true;
-            else if (index > 12540 && index < 12543)
-                return true;
-            else if (index > 12549 && index < 12586)
-                return true;
-            else if (index > 12690 && index < 12704)
-                return true;
-            else if (index > 12832 && index < 12868)
-                return true;
-            else if (index > 12928 && index < 12958)
-                return true;
-            else if (index > 12959 && index < 12964)
-                return true;
-            else if (index > 12969 && index < 12977)
-                return true;
-            else if (index > 13198 && index < 13200)
-                return true;
-            else if (index > 13212 && index < 13215)
-                return true;
-            else if (index > 13217 && index < 13218)
-                return true;
-            else if (index > 13252 && index < 13253)
-                return true;
-            else if (index > 13262 && index < 13263)
-                return true;
-            else if (index > 13265 && index < 13267)
-                return true;
-            else if (index > 13269 && index < 13270)
-                return true;
-            else if (index > 19968 && index < 40870)
-                return true;
-            else if (index > 56320 && index < 56321)
-                return true;
-            else if (index > 57344 && index < 59335)
-                return true;
-            else if (index > 59337 && index < 59493)
-                return true;
-            else if (index > 63733 && index < 63734)
-                return true;
-            else if (index > 63744 && index < 64046)
-                return true;
-            else if (index > 65072 && index < 65074)
-                return true;
-            else if (index > 65075 && index < 65093)
-                return true;
-            else if (index > 65097 && index < 65107)
-                return true;
-            else if (index > 65108 && index < 65112)
-                return true;
-            else if (index > 65113 && index < 65127)
-                return true;
-            else if (index > 65128 && index < 65132)
-                return true;
-            else if (index > 65281 && index < 65375)
-                return true;
-            else if (index > 65504 && index < 65510)
-                return true;
-            else
-                return false;
-        }
-        public static int GetCharDisplayLengthEx(char c)
         {
             int index = c;
             if (index > 0 && index < 7)
@@ -718,20 +471,19 @@ namespace Null.ConsoleEx
             else
                 return 0;
         }
-        public static int GetStringDisplayLengthEx(string str)
+        public static int GetStringDisplayLength(string str)
         {
             int total = 0;
             foreach (char c in str)
             {
                 int i = c;
-                total += GetCharDisplayLengthEx(c);
+                total += GetCharDisplayLength(c);
             }
             return total;
         }
     }
     public static class ConsoleExS
     {
-        static byte[] Lengths = Resources.Lengths;
         public static bool IsWideDisplayChar(char c)
         {
             return ConsoleEx.IsWideDisplayChar(c);
@@ -746,21 +498,6 @@ namespace Null.ConsoleEx
                 throw new ArgumentNullException("str");
 
             return ConsoleEx.GetStringDisplayLength(str);
-        }
-        public static bool IsWideDisplayCharEx(char c)
-        {
-            return ConsoleEx.IsWideDisplayCharEx(c);
-        }
-        public static int GetCharDisplayLengthEx(char c)
-        {
-            return ConsoleEx.GetCharDisplayLengthEx(c);
-        }
-        public static int GetStringDisplayLengthEx(string str)
-        {
-            if (str == null)
-                throw new ArgumentNullException("str");
-
-            return ConsoleEx.GetStringDisplayLengthEx(str);
         }
     }
 }
