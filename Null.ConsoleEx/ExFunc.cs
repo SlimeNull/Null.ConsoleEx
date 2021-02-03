@@ -1,5 +1,4 @@
-﻿using Null.ConsoleEx.Properties;
-using System;
+﻿using System;
 
 namespace Null.ConsoleEx
 {
